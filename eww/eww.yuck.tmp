@@ -1,0 +1,40 @@
+(include "variables.yuck")
+
+(defwidget volum_slider []
+    (scale :value current-volume :orientation "h" :max 101 :min 0 :onchange "wpctl set-volume 40 {}%")
+)
+
+
+(defwidget volum []
+  (eventbox :onhover "eww update open_volum=true" :onhoverlost "eww update open_volum=false" :halign "end" :class "volum_style"
+    (box :orientation "h" :space-evenly "true"
+      (revealer :transition "slideleft" :reveal open_volum (volum_slider))
+      (label :text "vol")
+    )
+  )
+)
+
+
+(defwidget menu []
+  (button :class "menu_style" :onclick "~/.config/eww/scripts/toggle_menu.sh" :halign "start"
+    (label :text "󰣇")
+  )
+)
+(defwidget bar []
+  (box :class "bar_style" :orientation "h" :space-evenly true
+    (menu)
+    (volum)
+  )
+)
+(defwindow main_bar
+  :monitor 0
+  :geometry (geometry :x "0"
+              :y "0"
+              :width "100%"
+              :height "3.2%"
+              :anchor "bottom center")
+  :stacking "fg"
+  :wm-ignore false
+  (bar)
+)
+

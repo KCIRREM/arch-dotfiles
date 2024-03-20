@@ -1,0 +1,5 @@
+(defvar menu_pid "")
+(defvar vol_reveal false)
+(defvar bri_reveal false)
+(defpoll current-volume  :interval "1s" :initial "0" "scripts/vol_current.sh") 
+(defpoll formatted_time :interval "1s" :initial "0" "date +\%k_\%M_\%S | sed 's/_/:/g'") 

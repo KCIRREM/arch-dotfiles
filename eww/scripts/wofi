@@ -1,0 +1,5 @@
+    PID TTY          TIME CMD
+   7526 pts/0    00:00:00 bash
+   9243 pts/0    00:00:00 toggle_menu.sh
+   9245 pts/0    00:00:00 wofi
+   9246 pts/0    00:00:00 ps
